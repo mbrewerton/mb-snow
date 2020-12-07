@@ -1,4 +1,4 @@
-import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
+import { AfterViewInit, Component, ElementRef, HostListener, Input } from '@angular/core';
 import { Snowflake } from '../models/snowflake';
 import {modifyAmount, random} from '../utils';
 
@@ -14,6 +14,8 @@ export class SnowComponent implements AfterViewInit {
   @Input() maxVelocity = 1.5;
   @Input() sway = true;
   @Input() autoStart = true;
+  @Input() amount = 250;
+  @Input() forceAmount = false;
   canvasElement: HTMLCanvasElement;
   snowFlakes: Snowflake[] = [];
   canvasContext: CanvasRenderingContext2D;
@@ -28,7 +30,7 @@ export class SnowComponent implements AfterViewInit {
 
   ngAfterViewInit(): void {
     this.initialiseCanvas();
-    const amount = this.canvasElement.width * 0.25;
+    const amount = this.forceAmount ? this.amount : modifyAmount(this.amount, this.canvasElement.width);
 
     if (this.autoStart) {
       this.startSnowfall();
