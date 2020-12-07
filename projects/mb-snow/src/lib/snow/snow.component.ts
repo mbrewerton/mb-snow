@@ -17,6 +17,7 @@ export class SnowComponent implements AfterViewInit {
   @Input() autoStart = true;
   @Input() amount = 250;
   @Input() forceAmount = false;
+  @Input() zIndex = 1;
   canvasElement: HTMLCanvasElement;
   snowFlakes: Snowflake[] = [];
   canvasContext: CanvasRenderingContext2D;
@@ -91,6 +92,7 @@ export class SnowComponent implements AfterViewInit {
   private initialiseCanvas() {
     const scale = window.devicePixelRatio;
     this.canvasElement = this.elementRef.nativeElement.querySelector('.mb-snow-canvas');
+    this.canvasElement.style.zIndex = 'this.zIndex';
     this.canvasElement.height = this.canvasElement.offsetHeight * scale;
     this.canvasElement.width = this.canvasElement.offsetWidth * scale;
     this.canvasContext = this.canvasElement.getContext('2d');
