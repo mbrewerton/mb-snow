@@ -13,6 +13,7 @@ export class SnowComponent implements AfterViewInit {
   @Input() minVelocity = 0.75;
   @Input() maxVelocity = 1.5;
   @Input() sway = true;
+  @Input() swayOffset = 2;
   @Input() autoStart = true;
   @Input() amount = 250;
   @Input() forceAmount = false;
@@ -42,7 +43,8 @@ export class SnowComponent implements AfterViewInit {
           random(0, this.canvasElement.width),
           random(0, this.canvasElement.height),
           random(this.minRadius, this.maxRadius),
-          {x: random(this.minVelocity, this.maxVelocity), y: random(this.minVelocity, this.maxVelocity)}
+          {x: random(this.minVelocity, this.maxVelocity), y: random(this.minVelocity, this.maxVelocity)},
+          this.swayOffset
         )
       );
     }

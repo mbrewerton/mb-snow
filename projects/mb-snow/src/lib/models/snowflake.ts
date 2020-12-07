@@ -4,19 +4,22 @@ export class Snowflake {
   private get colour(): number {
     return random(240, 255);
   }
+
   private baseVelocity: velocity;
+  private baseSway: number;
+  private readonly opacity: number;
   radius: number;
   velocity: velocity;
   x: number;
   y: number;
   fill: string;
   sway: number;
-  private opacity: number;
 
   constructor(x: number,
               y: number,
               radius: number,
-              velocity: velocity) {
+              velocity: velocity,
+              swayAmount: number) {
     this.x = x;
     this.y = y;
     this.baseVelocity = {...velocity}
@@ -24,7 +27,8 @@ export class Snowflake {
     this.radius = radius;
     this.opacity = random(0.5, 1);
     this.fill = `rgba(${this.colour}, ${this.colour}, ${this.colour}, ${this.opacity})`;
-    this.sway = random(0, 2 * Math.PI);
+    this.sway = random(swayAmount / 2, swayAmount * Math.PI);
+    this.baseSway = this.sway;
   }
 
   reset(x: number, y: number) {
@@ -32,7 +36,7 @@ export class Snowflake {
     this.y = y;
     this.velocity.y = this.baseVelocity.y;
     this.velocity.x = this.baseVelocity.x;
-    this.sway = random(0, 2 * Math.PI);
+    this.sway = random(0, this.baseSway * Math.PI);
   }
 
   calculateSway() {
