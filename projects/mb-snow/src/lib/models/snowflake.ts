@@ -31,12 +31,14 @@ export class Snowflake {
   reset(x: number, y: number) {
     this.x = x;
     this.y = y;
-    this.velocity = this.baseVelocity;
+    this.velocity.y = this.baseVelocity.y;
+    this.velocity.x = this.baseVelocity.x;
+    this.sway = random(0, 2 * Math.PI);
   }
 
   calculateSway() {
-    this.velocity.x = this.velocity.x * random(-this.velocity.y, this.velocity.y);
-    const sway = (0.3 * Math.cos(this.sway += .025) * (this.radius * 0.25)) + this.velocity.x * 0.1;
+    this.velocity.x = this.velocity.x * random(-1, 1);
+    const sway = (0.3 * Math.cos(this.sway += .025) * (this.radius * 0.5) * (this.sway * 0.25)) + this.velocity.x * 0.1;
     return this.x + sway;
   }
 }
