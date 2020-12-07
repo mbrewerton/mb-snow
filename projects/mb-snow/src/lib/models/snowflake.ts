@@ -27,7 +27,7 @@ export class Snowflake {
     this.radius = radius;
     this.opacity = random(0.5, 1);
     this.fill = `rgba(${this.colour}, ${this.colour}, ${this.colour}, ${this.opacity})`;
-    this.sway = random(swayAmount / 2, swayAmount * Math.PI);
+    this.sway = random(-swayAmount, swayAmount);
     this.baseSway = this.sway;
   }
 

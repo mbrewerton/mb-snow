@@ -13,7 +13,7 @@ export class SnowComponent implements AfterViewInit {
   @Input() minVelocity = 0.75;
   @Input() maxVelocity = 1.5;
   @Input() sway = true;
-  @Input() swayOffset = 2;
+  @Input() swayOffset = 5;
   @Input() autoStart = true;
   @Input() amount = 250;
   @Input() forceAmount = false;
