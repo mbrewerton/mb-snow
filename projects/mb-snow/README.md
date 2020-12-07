@@ -1,24 +1,33 @@
-# MbSnow
+# @mbrewerton/mb-snow
 
-This library was generated with [Angular CLI](https://github.com/angular/angular-cli) version 10.0.14.
+### About
+**mb-snow** is an Angular 10 module for adding a snowfall effect to your Angular applications.
 
-## Code scaffolding
+It's customisable and extremely easy to use.
 
-Run `ng generate component component-name --project mb-snow` to generate a new component. You can also use `ng generate directive|pipe|service|class|guard|interface|enum|module --project mb-snow`.
-> Note: Don't forget to add `--project mb-snow` or else it will be added to the default project in your `angular.json` file. 
+### Usage
+- Install **mb-snow** with npm: `npm i @mbrewerton/mb-snow`.
+- Import the `MbSnowModule` in your `<name>.module.ts`.
+- Add the `<mb-snow></mb-snow>` component to any component in your application.
 
-## Build
-
-Run `ng build mb-snow` to build the project. The build artifacts will be stored in the `dist/` directory.
-
-## Publishing
-
-After building your library with `ng build mb-snow`, go to the dist folder `cd dist/mb-snow` and run `npm publish`.
-
-## Running unit tests
-
-Run `ng test mb-snow` to execute the unit tests via [Karma](https://karma-runner.github.io).
-
-## Further help
-
-To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+You can overwrite the following default values by passing them into the component:
+- `minRadius` default: **1.5**
+  - The smallest size of snowflakes.
+- `maxRadius` default: **3**
+  - The largest size of snowflakes.
+- `minVelocity` default: **0.75**
+  - Used as the lowest value for the snowflake velocity calculations.
+- `maxVelocity` default: **1.5**
+  - Used as the highest value for the snowflake velocity calculations.
+- `sway` default: **true**
+  - Whether snowflakes should "sway" or fall straight down.
+- `swayOffset` default: **5**
+  - The "offset" used to calculate potential sway. A higher value means higher potential sway on the X axis.
+- `autoStart` default: **true**
+  - Whether the snowflakes should start falling on start. **Note: There is currently no other way to initialise the snowflakes**
+- `amount` default: **250**
+  - The amount used to calculate the number of snowflakes based on screen estate. A higher value means higher potential of snowflakes being created. Lower screen sizes will see less snowflakes.
+- `forceAmount` default: **false**
+  - Forces the amount of snowflakes to be exactly what is passed to `[amount]` - or its default.
+- `zIndex` default: **1**
+  - The `z-index` of the snowflake canvas.
