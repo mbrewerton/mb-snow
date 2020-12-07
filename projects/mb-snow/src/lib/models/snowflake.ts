@@ -1,5 +1,4 @@
-import { random } from '../random';
-import { velocity } from '../velocity';
+import {random, velocity} from '../utils';
 
 export class Snowflake {
   private get colour(): number {
