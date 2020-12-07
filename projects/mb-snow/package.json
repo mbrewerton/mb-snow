@@ -1,6 +1,12 @@
 {
-  "name": "mb-snow",
+  "name": "@mbrewerton/mb-snow",
   "version": "0.0.1",
+  "author": "Matt Brewerton <matt@mattbrewerton.co.uk>",
+  "license": "MIT",
+  "homepage": "https://github.com/mbrewerton/mb-snow",
+  "repository": "https://github.com/mbrewerton/mb-snow",
+  "description": "A customisable snowflake module for Angular 10+.",
+  "keywords": ["snow", "snowflakes", "angular", "angular10", "ngx"],
   "peerDependencies": {
     "@angular/common": "^10.0.14",
     "@angular/core": "^10.0.14"
