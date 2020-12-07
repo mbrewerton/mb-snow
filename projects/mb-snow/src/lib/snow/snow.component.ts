@@ -1,6 +1,6 @@
 import { AfterViewInit, Component, ElementRef, HostListener, Input, OnInit, ViewChild } from '@angular/core';
 import { Snowflake } from '../models/snowflake';
-import { random } from '../random';
+import {modifyAmount, random} from '../utils';
 
 @Component({
   selector: 'mb-snow',
